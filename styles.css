@@ -77,6 +77,12 @@ th {
   color: white;
 }
 
+td:last-child {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
 .btn-delete {
   background: red;
   color: white;
