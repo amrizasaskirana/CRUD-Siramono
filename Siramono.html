@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siramono - Data Tanaman</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Manajemen Tanaman - Siramono</h2>
+    <form id="tanamanForm">
+      <input type="hidden" id="editIndex">
+      <label for="nama">Nama Tanaman:</label>
+      <input type="text" id="nama" required>
+
+      <label for="jenis">Jenis Tanaman:</label>
+      <input type="text" id="jenis" required>
+
+      <label for="status">Status Penyiraman:</label>
+      <select id="status">
+        <option value="Otomatis">Otomatis</option>
+        <option value="Manual">Manual</option>
+      </select>
+
+      <label for="waktu">Waktu Penyiraman Terakhir:</label>
+      <input type="datetime-local" id="waktu" required>
+
+      <button type="submit">Simpan</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Jenis</th>
+          <th>Status</th>
+          <th>Waktu</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tanamanList"></tbody>
+    </table>
+  </div>
+
+  <script src="javascript.js"></script>
+</body>
+
+</html>
