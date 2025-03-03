@@ -1,7 +1,12 @@
 document.getElementById("tanamanForm").addEventListener("submit", function (event) {
+
   event.preventDefault();
   let editIndex = document.getElementById("editIndex").value;
   let nama = document.getElementById("nama").value;
+  if (nama.includes(",")) {
+    alert("Nama tanaman tidak boleh mengandung koma!");
+    return;
+  }
   let jenis = document.getElementById("jenis").value;
   let status = document.getElementById("status").value;
   let waktu = document.getElementById("waktu").value;
@@ -17,6 +22,11 @@ document.getElementById("tanamanForm").addEventListener("submit", function (even
 
 function tambahTanaman(nama, jenis, status, waktu) {
   let table = document.getElementById("tanamanList");
+  let emptyRow = document.getElementById("emptyRow");
+
+  //Hapus pesan jika masih ada
+  if (emptyRow) emptyRow.remove();
+
   let row = document.createElement("tr");
   row.innerHTML = `
       <td>${nama}</td>
@@ -50,6 +60,15 @@ function updateTanaman(index, nama, jenis, status, waktu) {
 }
 
 function hapusTanaman(button) {
+  let table = document.getElementById("tanamanList");
   let row = button.parentElement.parentElement;
-  document.getElementById("tanamanList").deleteRow(row.rowIndex - 1);
+  row.remove();
+}
+
+// Cek apakah tabel kosong setelah penghapusan
+if (table.children.length === 0) {
+  let emptyRow = document.createElement("tr");
+  emptyRow.id = "emptyRow";
+  emptyRow.innerHTML = "<td colspan='5' style='text-align: center; color: gray;'>Data kosong</td>";
+  table.appendChild(emptyRow);
 }
