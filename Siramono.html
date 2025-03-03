@@ -17,7 +17,14 @@
       <input type="text" id="nama" required>
 
       <label for="jenis">Jenis Tanaman:</label>
-      <input type="text" id="jenis" required>
+      <select id="jenis" required>
+        <option value="">-- Pilih Jenis Tanaman --</option>
+        <option value="Tanaman Hias Daun">Tanaman Hias Daun</option>
+        <option value="Tanaman Hias Bunga">Tanaman Hias Bunga</option>
+        <option value="Tanaman Hias Gantung">Tanaman Hias Gantung</option>
+        <option value="Tanaman Hias Sukulen dan Kaktus">Tanaman Hias Sukulen dan Kaktus</option>
+        <option value="Tanaman Hias Air">Tanaman Hias Air</option>
+      </select>
 
       <label for="status">Status Penyiraman:</label>
       <select id="status">
@@ -41,7 +48,11 @@
           <th>Aksi</th>
         </tr>
       </thead>
-      <tbody id="tanamanList"></tbody>
+      <tbody id="tanamanList">
+        <tr id='emptyRow'>
+          <td colspan='5' style='text-align: center; color: gray;'>Data kosong</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 
